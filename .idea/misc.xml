@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/pavel/hw4_database/app/src/main/res/layout/activity_main.xml" value="0.33177083333333335" />
+        <entry key="..\:/Users/pavel/hw4_database/app/src/main/res/layout/fragment_content.xml" value="0.34479166666666666" />
+        <entry key="..\:/Users/pavel/hw4_database/app/src/main/res/layout/fragment_input_info.xml" value="0.3494791666666667" />
+        <entry key="..\:/Users/pavel/hw4_database/app/src/main/res/layout/fragment_list.xml" value="0.3494791666666667" />
+        <entry key="..\:/Users/pavel/hw4_database/app/src/main/res/layout/item_db.xml" value="0.3494791666666667" />
+        <entry key="..\:/Users/pavel/hw4_database/app/src/main/res/layout/item_fragment.xml" value="0.262109375" />
+        <entry key="..\:/Users/pavel/hw4_database/app/src/main/res/menu/menu_bottom_nav.xml" value="0.34479166666666666" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
