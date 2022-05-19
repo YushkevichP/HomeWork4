@@ -19,9 +19,9 @@ class ListFragment : Fragment() {
         }
 
    private val adapter = UserAdapter()
-//    private val userDao by lazy {
-//        requireContext().appDataBase.userDaoFun()
-//    }
+    private val userDao by lazy {
+        requireContext().appDataBase.userDaoFun()
+    }
 
 
 
@@ -38,17 +38,18 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val layoutManager = LinearLayoutManager(view.context)
-//
-//        with(binding){
-//            recyclerView.addSpaceDecoration(resources.getDimensionPixelSize(R.dimen.bottom_space))
-//            recyclerView.adapter = adapter
-//            recyclerView.layoutManager = layoutManager
-//
-//        }
-//        with(binding){
-//
-//        }
+        val layoutManager = LinearLayoutManager(view.context)
+
+        with(binding){
+            recyclerView.addSpaceDecoration(resources.getDimensionPixelSize(R.dimen.bottom_space))
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = layoutManager
+
+        }
+        with(binding){
+            val list = userDao.getAllUsers()
+            adapter.submitList(list)
+        }
 
 
     }
