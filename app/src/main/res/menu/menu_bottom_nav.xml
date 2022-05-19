@@ -3,7 +3,8 @@
     <item
         android:id="@+id/fragment1"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="Page 1"/>
+        android:title="Page 1"
+        />
 
     <item
         android:id="@+id/fragment2"

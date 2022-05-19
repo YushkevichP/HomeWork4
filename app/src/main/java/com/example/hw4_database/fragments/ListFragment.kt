@@ -5,7 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hw4_database.R
+import com.example.hw4_database.adapter.UserAdapter
 import com.example.hw4_database.databinding.FragmentListBinding
+import com.example.hw4_database.extensions.addSpaceDecoration
 
 class ListFragment : Fragment() {
     private var _binding: FragmentListBinding? = null
@@ -13,6 +17,13 @@ class ListFragment : Fragment() {
         get() = requireNotNull(_binding) {
             "View was destroyed"
         }
+
+   private val adapter = UserAdapter()
+//    private val userDao by lazy {
+//        requireContext().appDataBase.userDaoFun()
+//    }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,6 +37,18 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+//        val layoutManager = LinearLayoutManager(view.context)
+//
+//        with(binding){
+//            recyclerView.addSpaceDecoration(resources.getDimensionPixelSize(R.dimen.bottom_space))
+//            recyclerView.adapter = adapter
+//            recyclerView.layoutManager = layoutManager
+//
+//        }
+//        with(binding){
+//
+//        }
 
 
     }

@@ -7,31 +7,23 @@
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="My Toolbar"
-        app:navigationIcon="@android:drawable/ic_dialog_email"
-        android:src="?attr/homeAsUpIndicator"
-        android:background="@color/khaki"
-        app:titleTextColor="@color/white"
-        />
-    
-    
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/page_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost = "false"
+        app:navGraph ="@navigation/navigation_page"
         />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/menu_bottom_nav"
-        />
+        android:background="@color/khaki"
+        app:menu="@menu/menu_bottom_nav" />
 
 
 </LinearLayout>

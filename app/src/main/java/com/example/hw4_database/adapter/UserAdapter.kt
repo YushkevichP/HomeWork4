@@ -10,11 +10,13 @@ import com.example.hw4_database.database.UserDao
 import com.example.hw4_database.databinding.ItemDbBinding
 import com.example.hw4_database.model.User
 
-class UserAdapter(context: Context) : ListAdapter<User, UserViewHolder>(DIFF_UTILS) {
+class UserAdapter() : ListAdapter<User, UserViewHolder>(DIFF_UTILS) {
 
-    private val layoutInflater = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+
+        val layoutInflater = LayoutInflater.from(parent.context)
+
         return UserViewHolder(
             binding = ItemDbBinding.inflate(layoutInflater, parent, false)
 
@@ -22,11 +24,11 @@ class UserAdapter(context: Context) : ListAdapter<User, UserViewHolder>(DIFF_UTI
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-       holder.bind(getItem(position))
+        holder.bind(getItem(position))
     }
 
-    companion object{
-        val DIFF_UTILS = object : DiffUtil.ItemCallback<User>(){
+    companion object {
+        val DIFF_UTILS = object : DiffUtil.ItemCallback<User>() {
             override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
                 return oldItem.id == newItem.id
             }
@@ -48,8 +50,8 @@ class UserViewHolder(
 
         with(binding) {
 
-           firstNameTextView.text = user.firstName.toString()
-           secondNameTextView.text = user.secondName.toString()
+            firstNameTextView.text = user.firstName.toString()
+            secondNameTextView.text = user.secondName.toString()
 
         }
 

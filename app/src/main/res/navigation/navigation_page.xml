@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_page"
-
-    >
+    app:startDestination="@id/fragment1">
 
     <fragment
-        android:id="@+id/fragment1"/>
+        android:id="@+id/fragment1"
+        android:name="com.example.hw4_database.fragments.InputInfoFragment"
+        tools:layout="@layout/fragment_input_info" />
 
-
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.hw4_database.fragments.ListFragment"
+        tools:layout="@layout/fragment_list" />
 
 
 </navigation>

@@ -6,13 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.hw4_database.databinding.FragmentInputInfoBinding
+import com.example.hw4_database.model.User
 
 class InputInfoFragment : Fragment() {
 
     private var _binding: FragmentInputInfoBinding? = null
-    private val binding:FragmentInputInfoBinding
-    get() = requireNotNull(_binding){
-        "View was destroyed"
+    private val binding: FragmentInputInfoBinding
+        get() = requireNotNull(_binding) {
+            "View was destroyed"
+        }
+
+    private val userDao by lazy {
+        requireContext().appDataBase.userDaoFun()
     }
 
     override fun onCreateView(
@@ -28,10 +33,17 @@ class InputInfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-                //todo
-        with(binding){
+        //todo
+        with(binding) {
             button.setOnClickListener {
                 // жмем на кнопку - инфа отрпавляется в нашу бд и уже оттуда грузится в ресайклер и обновляется список.
+                editFirstName.text?.takeIf {
+                    it.isNotEmpty()
+                }?.let {
+                    user ->
+                    userDao.insertUser(User(firstName = editFirstName.text.toString(),
+                        secondName = editLastName.text.toString()))
+                }
             }
         }
 

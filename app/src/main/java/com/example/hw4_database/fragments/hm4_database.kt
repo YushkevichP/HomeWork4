@@ -5,12 +5,13 @@ import android.content.Context
 import androidx.room.Room
 import com.example.hw4_database.database.AppDataBase
 
-class hm4_database:Application() {
+class hm4_database : Application() {
 
     private var _dataBase: AppDataBase? = null
-    val dataBase get() = requireNotNull(_dataBase){
-        "oops"
-    }
+    val dataBase
+        get() = requireNotNull(_dataBase) {
+            "oops"
+        }
 
     override fun onCreate() {
         super.onCreate()
@@ -25,8 +26,8 @@ class hm4_database:Application() {
     }
 }
 
-val Context.appDataBase : AppDataBase
-get() = when{
-    this is hm4_database -> dataBase
-    else-> applicationContext.appDataBase
-}
+val Context.appDataBase: AppDataBase
+    get() = when {
+        this is hm4_database -> dataBase
+        else -> applicationContext.appDataBase
+    }
