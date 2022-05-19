@@ -46,8 +46,8 @@ class InputInfoFragment : Fragment() {
                         lastNameContainer.error = null
                     }
                 } else {
-                    firstNameContainer.error = "Please fill all places"
-                    lastNameContainer.error = "Please fill all places"
+                    firstNameContainer.error = "Please fill all fields"
+                    lastNameContainer.error = "Please fill all fields"
                 }
 
 
