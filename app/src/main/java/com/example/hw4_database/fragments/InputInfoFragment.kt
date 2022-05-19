@@ -33,17 +33,31 @@ class InputInfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //todo
         with(binding) {
             button.setOnClickListener {
-                // жмем на кнопку - инфа отрпавляется в нашу бд и уже оттуда грузится в ресайклер и обновляется список.
-                editFirstName.text?.takeIf {
-                    it.isNotEmpty()
-                }?.let {
-                    user ->
-                    userDao.insertUser(User(firstName = editFirstName.text.toString(),
-                        secondName = editLastName.text.toString()))
+
+                val lastName = editLastName.text.toString()
+                val firstName = editFirstName.text.toString()
+                if (lastName.isNotEmpty() && firstName.isNotEmpty()) {
+                    let { user ->
+                        userDao.insertUser(User(firstName = firstName,
+                            secondName = lastName))
+                        firstNameContainer.error = null
+                        lastNameContainer.error = null
+                    }
+                } else {
+                    firstNameContainer.error = "Please fill all places"
+                    lastNameContainer.error = "Please fill all places"
                 }
+
+
+//                editFirstName.text?.takeIf {
+//                    it.isNotEmpty()
+//                }?.let {
+//                    user ->
+//                    userDao.insertUser(User(firstName = editFirstName.text.toString(),
+//                        secondName = editLastName.text.toString()))
+//                }
             }
         }
 

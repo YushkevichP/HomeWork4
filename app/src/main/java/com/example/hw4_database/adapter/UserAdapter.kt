@@ -50,6 +50,13 @@ class UserViewHolder(
 
         with(binding) {
 
+            val userId = user.id.toString()
+            val userFirstName = user.firstName.toString()
+            val userSecondName = user.secondName.toString()
+
+//            firstNameTextView.text = "$userId $userFirstName $userSecondName"
+
+            idTextView.text = user.id.toString()
             firstNameTextView.text = user.firstName.toString()
             secondNameTextView.text = user.secondName.toString()
 
