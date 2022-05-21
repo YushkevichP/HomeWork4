@@ -58,6 +58,7 @@ class UserViewHolder(
                 onUserClicked(user,imageButton)
             }
 
+
             idTextView.text = user.id.toString()
             firstNameTextView.text = user.firstName.toString()
             secondNameTextView.text = user.secondName.toString()

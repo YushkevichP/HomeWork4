@@ -22,7 +22,7 @@ class ListFragment : Fragment() {
 
     private val adapter by lazy {
         UserAdapter { user, view ->
-           showPopUpMenu(user,view)
+            showPopUpMenu(user, view)
 
         }
     }
@@ -77,7 +77,7 @@ class ListFragment : Fragment() {
                     true
                 }
                 R.id.delete_user -> {
-                    showDeleteDialog()
+                    showDeleteDialog(user)
                     true
                 }
                 else -> false
@@ -86,25 +86,24 @@ class ListFragment : Fragment() {
         popUp.show()
     }
 
-    private fun showDeleteDialog(){
+    private fun showDeleteDialog(user: User) {
         AlertDialog.Builder(requireContext())
             .setTitle("DELETE TITLE")
             .setMessage("Are you sure?")
-            .setPositiveButton(android.R.string.ok){
-                    dialog, buttonId -> //todo deleting element
+            .setPositiveButton(android.R.string.ok) { dialog, buttonId ->
+                userDao.delete(user = user)
+                val updateList = userDao.getAllUsers()
+                adapter.submitList(updateList)
 
             }
-            .setNegativeButton(android.R.string.cancel,null)
+            .setNegativeButton(android.R.string.cancel, null)
             .show()
     }
 
-    private fun showCustomEditDialog(){
+    private fun showCustomEditDialog() {
 
     }
 }
-
-
-
 
 
 //private fun showPopUpMenu(view: View) {
