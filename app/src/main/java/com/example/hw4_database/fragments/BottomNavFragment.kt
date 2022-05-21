@@ -32,15 +32,11 @@ class BottomNavFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
-            //находим наш внутренний контроллер
             val nestedController =
                 (childFragmentManager.findFragmentById(R.id.page_container) as NavHostFragment)
                     .navController
             bottomNavigation.setupWithNavController(nestedController)
-
         }
-
-
     }
 
     override fun onDestroyView() {

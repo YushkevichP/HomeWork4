@@ -4,7 +4,7 @@
     package="com.example.hw4_database">
 
     <application
-        android:name=".fragments.hm4_database"
+        android:name=".fragments.Hm4database"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"

@@ -1,13 +1,9 @@
 package com.example.hw4_database.fragments
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import com.example.hw4_database.R
 import com.example.hw4_database.databinding.FragmentInputInfoBinding
@@ -40,7 +36,6 @@ class InputInfoFragment : Fragment() {
 
         with(binding) {
             button.setOnClickListener {
-
                 val lastName = editLastName.text.toString()
                 val firstName = editFirstName.text.toString()
                 if (lastName.isNotEmpty() && firstName.isNotEmpty()) {
@@ -51,10 +46,9 @@ class InputInfoFragment : Fragment() {
                         lastNameContainer.error = null
                     }
                 } else {
-                    firstNameContainer.error = "Please fill all fields"
-                    lastNameContainer.error = "Please fill all fields"
+                    firstNameContainer.error = getString(R.string.fill_all_fields)
+                    lastNameContainer.error = getString(R.string.fill_all_fields)
                 }
-
 
 //                editFirstName.text?.takeIf {
 //                    it.isNotEmpty()

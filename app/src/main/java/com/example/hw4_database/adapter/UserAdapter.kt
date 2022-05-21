@@ -1,16 +1,12 @@
 package com.example.hw4_database.adapter
 
-import android.content.Context
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hw4_database.R
-import com.example.hw4_database.database.UserDao
 import com.example.hw4_database.databinding.ItemDbBinding
 import com.example.hw4_database.model.User
 
@@ -51,13 +47,10 @@ class UserViewHolder(
     ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(user: User) {
-
         with(binding) {
-
             imageButton.setOnClickListener {
                 onUserClicked(user,imageButton)
             }
-
 
             idTextView.text = user.id.toString()
             firstNameTextView.text = user.firstName.toString()

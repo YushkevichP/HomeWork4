@@ -2,7 +2,6 @@ package com.example.hw4_database.fragments
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
@@ -23,7 +22,6 @@ class ListFragment : Fragment() {
     private val adapter by lazy {
         UserAdapter { user, view ->
             showPopUpMenu(user, view)
-
         }
     }
 
@@ -51,12 +49,9 @@ class ListFragment : Fragment() {
             recyclerView.addSpaceDecoration(resources.getDimensionPixelSize(R.dimen.bottom_space))
             recyclerView.adapter = adapter
             recyclerView.layoutManager = layoutManager
-
-
-        }
-        with(binding) {
             val list = userDao.getAllUsers()
             adapter.submitList(list)
+
         }
     }
 
@@ -66,14 +61,12 @@ class ListFragment : Fragment() {
     }
 
     private fun showPopUpMenu(user: User, view: View) {
-
         val popUp = PopupMenu(requireContext(), view, Gravity.FILL)
         popUp.menuInflater.inflate(R.menu.menu_delete_edit, popUp.menu)
         popUp.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.edit_user -> {
-                    Toast.makeText(requireContext(), "Should be EDIT Dialog", Toast.LENGTH_SHORT)
-                        .show()
+                    showCustomEditDialog(user)
                     true
                 }
                 R.id.delete_user -> {
@@ -88,54 +81,23 @@ class ListFragment : Fragment() {
 
     private fun showDeleteDialog(user: User) {
         AlertDialog.Builder(requireContext())
-            .setTitle("DELETE TITLE")
-            .setMessage("Are you sure?")
-            .setPositiveButton(android.R.string.ok) { dialog, buttonId ->
+            .setTitle(R.string.removing_user)
+            .setMessage(R.string.are_you_sure_you_want_to_remove_this_user)
+            .setPositiveButton(R.string.yes) { _, _ ->
                 userDao.delete(user = user)
                 val updateList = userDao.getAllUsers()
                 adapter.submitList(updateList)
-
             }
             .setNegativeButton(android.R.string.cancel, null)
             .show()
     }
 
-    private fun showCustomEditDialog() {
+    private fun showCustomEditDialog(user: User) {
+        CustomDialogFragment.getInstance(user).show(childFragmentManager, null)
+//        val updateList = userDao.getAllUsers()
+//        adapter.submitList(updateList)
 
     }
 }
 
-
-//private fun showPopUpMenu(view: View) {
-//
-//    val popUp = PopupMenu(requireContext(), view, Gravity.FILL)
-//    popUp.menuInflater.inflate(R.menu.menu_delete_edit, popUp.menu)
-//    popUp.setOnMenuItemClickListener {
-//        when (it.itemId) {
-//            R.id.edit_user -> {
-//                Toast.makeText(requireContext(), "Should be EDIT Dialog", Toast.LENGTH_SHORT)
-//                    .show()
-//                true
-//            }
-//            R.id.delete_user -> {
-//                showDeleteDialog()
-//                true
-//            }
-//            else -> false
-//        }
-//    }
-//    popUp.show()
-//}
-//
-//private fun showDeleteDialog(){
-//    AlertDialog.Builder(requireContext())
-//        .setTitle("DELETE TITLE")
-//        .setMessage("Are you sure?")
-//        .setPositiveButton(android.R.string.ok){
-//                dialog, buttonId -> //todo deleting element
-//
-//        }
-//        .setNegativeButton(android.R.string.cancel,null)
-//        .show()
-//}
 

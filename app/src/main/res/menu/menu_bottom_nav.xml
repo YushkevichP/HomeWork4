@@ -3,12 +3,12 @@
     <item
         android:id="@+id/fragment1"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="Page 1"
+        android:title="@string/add_user"
         />
 
     <item
         android:id="@+id/fragment2"
-        android:icon="@android:drawable/ic_input_add"
-        android:title="Page 2"/>
+        android:icon="@android:drawable/btn_star"
+        android:title="@string/list_users"/>
 
 </menu>

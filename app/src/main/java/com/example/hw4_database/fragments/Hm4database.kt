@@ -5,7 +5,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.hw4_database.database.AppDataBase
 
-class hm4_database : Application() {
+class Hm4database : Application() {
 
     private var _dataBase: AppDataBase? = null
     val dataBase
@@ -22,12 +22,11 @@ class hm4_database : Application() {
             "app_database"
         ).allowMainThreadQueries()
             .build()
-
     }
 }
 
 val Context.appDataBase: AppDataBase
     get() = when {
-        this is hm4_database -> dataBase
+        this is Hm4database -> dataBase
         else -> applicationContext.appDataBase
     }
