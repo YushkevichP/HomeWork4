@@ -2,24 +2,28 @@ package com.example.hw4_database.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hw4_database.R
 import com.example.hw4_database.database.UserDao
 import com.example.hw4_database.databinding.ItemDbBinding
 import com.example.hw4_database.model.User
 
-class UserAdapter() : ListAdapter<User, UserViewHolder>(DIFF_UTILS) {
-
+class UserAdapter(
+    private val onUserClicked: (User, View) -> Unit,
+) : ListAdapter<User, UserViewHolder>(DIFF_UTILS) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
 
         val layoutInflater = LayoutInflater.from(parent.context)
-
         return UserViewHolder(
-            binding = ItemDbBinding.inflate(layoutInflater, parent, false)
-
+            binding = ItemDbBinding.inflate(layoutInflater, parent, false),
+            onUserClicked = onUserClicked
         )
     }
 
@@ -41,26 +45,24 @@ class UserAdapter() : ListAdapter<User, UserViewHolder>(DIFF_UTILS) {
     }
 }
 
-
 class UserViewHolder(
     private val binding: ItemDbBinding,
-) : RecyclerView.ViewHolder(binding.root) {
+    private val onUserClicked: (user:User, view:View) -> Unit,
+    ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(user: User) {
 
         with(binding) {
 
-            val userId = user.id.toString()
-            val userFirstName = user.firstName.toString()
-            val userSecondName = user.secondName.toString()
-
-//            firstNameTextView.text = "$userId $userFirstName $userSecondName"
+            imageButton.setOnClickListener {
+                onUserClicked(user,imageButton)
+            }
 
             idTextView.text = user.id.toString()
             firstNameTextView.text = user.firstName.toString()
             secondNameTextView.text = user.secondName.toString()
-
         }
-
     }
+
+
 }
