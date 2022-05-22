@@ -16,7 +16,7 @@
         android:src="?attr/homeAsUpIndicator"
         android:background="@color/khaki"
         app:titleTextColor="@color/white"
-        app:menu="@menu/menu_search"
+
         />
 
     <androidx.recyclerview.widget.RecyclerView

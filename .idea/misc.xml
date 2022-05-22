@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/pavel/hw4_database/app/src/main/res/drawable/ic_baseline_contacts_24.xml" value="0.2815" />
         <entry key="..\:/Users/pavel/hw4_database/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.216" />
+        <entry key="..\:/Users/pavel/hw4_database/app/src/main/res/drawable/ic_baseline_person_search_24.xml" value="0.2815" />
         <entry key="..\:/Users/pavel/hw4_database/app/src/main/res/drawable/three_dot.xml" value="0.216" />
         <entry key="..\:/Users/pavel/hw4_database/app/src/main/res/layout/activity_main.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/pavel/hw4_database/app/src/main/res/layout/fragment_bottom_navigation.xml" value="0.3458333333333333" />

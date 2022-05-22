@@ -55,6 +55,11 @@ class CustomDialogFragment private constructor() : DialogFragment() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding=null
+    }
+
     companion object {
         const val FIRST_NAME_KEY = "firstNameKey"
         const val LAST_NAME_KEY = "lastNameKey"
