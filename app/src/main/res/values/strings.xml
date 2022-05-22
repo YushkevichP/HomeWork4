@@ -1,35 +1,21 @@
 <resources>
     <string name="app_name">hw4_database</string>
 
-    <string name="users">Users</string>
-
-
-
-
-    <string name="delete_button">Delete button</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
-    <string name="submit">Submit</string>
-    <string name="do_you_want_to_change_user_info">Do you want to change user info?</string>
-    <string name="cancel">Cancel</string>
-    <string name="search">search menu</string>
-    <string name="user_removing">User removing</string>
-    <string name="edit">Edit</string>
-    <string name="name">Name:</string>
-    <string name="do_you_want_to_change_details">Do you want to change details?</string>
+    <string name="fill_all_fields">Please fill all fields</string>
     <string name="removing_user">Removing user</string>
     <string name="are_you_sure_you_want_to_remove_this_user">Are you sure you want to remove this user?</string>
-    <string name="delete">Delete</string>
-
-    <string name="add_user">Add User</string>
-    <string name="list_users">List Users</string>
-    <string name="first_name">First name</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
     <string name="last_name">Last name</string>
     <string name="add">add</string>
     <string name="edit_button">Edit button</string>
-    <string name="fill_all_fields">Please fill all fields</string>
-    <string name="tool_bar_name">My Toolbar</string>
+    <string name="add_user">Add User</string>
+    <string name="list_users">List Users</string>
+    <string name="edit">Edit</string>
+    <string name="search">search menu</string>
+    <string name="first_name">First name</string>
     <string name="edit_user_info_menu">EDIT USER INFO MENU</string>
-
-
+    <string name="tool_bar_name">My Toolbar</string>
+    <string name="delete">Delete</string>
 </resources>

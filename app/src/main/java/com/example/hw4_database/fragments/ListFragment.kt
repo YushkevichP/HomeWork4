@@ -101,7 +101,7 @@ class ListFragment : Fragment() {
             .setNegativeButton(android.R.string.cancel, null)
             .show()
     }
-
+// todo  в БД юзер обновляется, а во вью только если перейти куда-то и вернуться
     private fun showCustomEditDialog(user: User) {
         CustomDialogFragment.getInstance(user).show(childFragmentManager, null)
 
@@ -110,6 +110,8 @@ class ListFragment : Fragment() {
 
     }
 
+    //todo нужно пофиксить поиск: если начинаю вводить и потом перехожу на другой фрагмент, то поиск
+    // перестает работать, нужно снова наживать на значок и тогда ок.
     private fun searchUserMenu() {
         with(binding) {
             toolbar.inflateMenu(R.menu.menu_search)
@@ -137,6 +139,7 @@ class ListFragment : Fragment() {
                                 return true
                             }
                         })
+
                         true
                     }
                     else -> {

@@ -39,7 +39,7 @@ class InputInfoFragment : Fragment() {
                 val lastName = editLastName.text.toString()
                 val firstName = editFirstName.text.toString()
                 if (lastName.isNotEmpty() && firstName.isNotEmpty()) {
-                    let { user ->
+                    let {
                         userDao.insertUser(User(firstName = firstName,
                             secondName = lastName))
                         firstNameContainer.error = null
@@ -49,7 +49,6 @@ class InputInfoFragment : Fragment() {
                     firstNameContainer.error = getString(R.string.fill_all_fields)
                     lastNameContainer.error = getString(R.string.fill_all_fields)
                 }
-
 //                editFirstName.text?.takeIf {
 //                    it.isNotEmpty()
 //                }?.let {
@@ -59,7 +58,6 @@ class InputInfoFragment : Fragment() {
 //                }
             }
         }
-
     }
 
     override fun onDestroyView() {
